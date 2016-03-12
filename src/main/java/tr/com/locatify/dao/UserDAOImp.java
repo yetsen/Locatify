@@ -3,6 +3,7 @@ package tr.com.locatify.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import tr.com.locatify.model.GeneralResponse;
 
 import javax.sql.DataSource;
 
@@ -17,9 +18,20 @@ public class UserDAOImp extends JdbcDaoSupport implements UserDAO {
     private String CREATE_USER_SQL="INSERT INTO user(email, password, name, surname, created_at) values(?,?,?,?,now())";
 
     @Override
-    public void createUser(String email, String password, String name, String surname) {
+    public GeneralResponse createUser(String email, String password, String name, String surname) {
         JdbcTemplate jdbcTemplate = getJdbcTemplate();
+        GeneralResponse response = new GeneralResponse();
         Object [] args = {email, password, name, surname};
-        jdbcTemplate.update(CREATE_USER_SQL, args);
+        int result = jdbcTemplate.update(CREATE_USER_SQL, args);
+        if (result == 1) {
+            response.setDesc("İşlem Başarı ile gerçekleşti");
+            response.setStatus("SUCCESS");
+            response.setStatusCode(1);
+        }else {
+            response.setDesc("İşlem HATALI");
+            response.setStatus("ERROR");
+            response.setStatusCode(-1);
+        }
+        return response;
     }
 }

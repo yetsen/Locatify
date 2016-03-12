@@ -19,7 +19,7 @@ public class UserController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public void createUser(@RequestBody User user) {
-        userDAO.createUser(user.getEmail(), user.getPassword(), user.getName(), user.getSurname());
+    public GeneralResponse createUser(@RequestBody User user) {
+        return userDAO.createUser(user.getEmail(), user.getPassword(), user.getName(), user.getSurname());
     }
 }
