@@ -4,6 +4,8 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import tr.com.locatify.dao.CurseDAO;
+import tr.com.locatify.dao.CurseDAOImp;
 import tr.com.locatify.dao.UserDAO;
 import tr.com.locatify.dao.UserDAOImp;
 
@@ -43,5 +45,12 @@ public class DAOConfig {
         UserDAOImp userDAO = new UserDAOImp();
         userDAO.setDataSource(dataSource());
         return userDAO;
+    }
+
+    @Bean
+    public CurseDAO curseDAO() {
+        CurseDAOImp curseDAO = new CurseDAOImp();
+        curseDAO.setDataSource(dataSource());
+        return curseDAO;
     }
 }
