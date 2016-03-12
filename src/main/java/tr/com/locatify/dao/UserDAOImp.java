@@ -14,7 +14,7 @@ public class UserDAOImp extends JdbcDaoSupport implements UserDAO {
     @Autowired
     private DataSource dataSource;
 
-    private String CREATE_USER_SQL="INSERT INTO USER(email, password, name, surname, created_at) values(?,?,?,?,now())";
+    private String CREATE_USER_SQL="INSERT INTO user(email, password, name, surname, created_at) values(?,?,?,?,now())";
 
     @Override
     public void createUser(String email, String password, String name, String surname) {

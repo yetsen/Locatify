@@ -7,6 +7,7 @@
     <groupId>tr.com.locatify</groupId>
     <artifactId>locatify</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
     <properties>
         <spring.version>4.2.5.RELEASE</spring.version>
     </properties>
@@ -34,6 +35,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>4.2.5.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
         </dependency>
 
 

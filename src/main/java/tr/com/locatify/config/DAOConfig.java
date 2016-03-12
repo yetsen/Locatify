@@ -16,16 +16,16 @@ import javax.sql.DataSource;
 @Configuration
 public class DAOConfig {
 
-    @Value("locatify.datasource.driverClassName")
+    @Value("${locatify.datasource.driverClassName}")
     private String classDriver;
 
-    @Value("locatify.datasource.url")
+    @Value("${locatify.datasource.url}")
     private String url;
 
-    @Value("locatify.datasource.username")
+    @Value("${locatify.datasource.username}")
     private String username;
 
-    @Value("locatify.datasource.password")
+    @Value("${locatify.datasource.password}")
     private String password;
 
     @Bean
