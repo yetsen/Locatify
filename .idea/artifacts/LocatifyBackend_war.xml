@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="LocatifyBackend:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="locatify-1.0-SNAPSHOT.war">
+    <root id="archive" name="locatify.war">
       <element id="artifact" artifact-name="LocatifyBackend:war exploded" />
     </root>
   </artifact>
