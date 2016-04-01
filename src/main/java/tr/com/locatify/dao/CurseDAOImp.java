@@ -18,7 +18,8 @@ public class CurseDAOImp extends JdbcDaoSupport implements CurseDAO {
     private String insertMessageSQL = "INSERT INTO curse" +
             "(username, latitude, longitude, message) VALUES (?,?,?,?)";
 
-    private String getMessageSQL = "select * from curse where latitude BETWEEN ? - 1 and ? + 1  and longitude BETWEEN ? - 1 and ? + 1";
+    private String getMessageSQL = "select * from curse where latitude BETWEEN ? - 1 and ? + 1  and longitude BETWEEN ? - 1 and ? + 1 and id > ?";
+
 
     @Override
     public GeneralResponse insertMessage(Object [] args) {
@@ -48,6 +49,7 @@ public class CurseDAOImp extends JdbcDaoSupport implements CurseDAO {
                 message.setLatitude(Double.parseDouble(resultSet.getString("latitude")));
                 message.setLongitude(Double.parseDouble(resultSet.getString("longitude")));
                 message.setUsername(resultSet.getString("username"));
+                message.setId(resultSet.getInt("id"));
                 return message;
             }
         });

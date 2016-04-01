@@ -4,10 +4,19 @@ package tr.com.locatify.model;
  * Created by Yunus on 12-Mar-16.
  */
 public class Message {
+    private int id;
     private String username;
     private String message;
     private Double latitude;
     private Double longitude;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
